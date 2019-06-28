@@ -36,7 +36,7 @@ public class CategoryManageController {
         // 校验用户是否登录
         User user = (User) session.getAttribute(Const.CURRENT_USER);
         if (user == null) {
-            return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), "未登录，需要登录");
+            return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), ResponseCode.NEED_LOGIN.getDesc());
         }
         //校验是否是管理员
         if (iUserService.checkAdminRole(user).isSuccess()) {
@@ -54,7 +54,7 @@ public class CategoryManageController {
         // 校验用户是否登录
         User user = (User) session.getAttribute(Const.CURRENT_USER);
         if (user == null) {
-            return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), "未登录，需要登录");
+            return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), ResponseCode.NEED_LOGIN.getDesc());
         }
         //校验是否是管理员
         if (iUserService.checkAdminRole(user).isSuccess()) {
@@ -73,7 +73,7 @@ public class CategoryManageController {
         // 校验用户是否登录
         User user = (User) session.getAttribute(Const.CURRENT_USER);
         if (user == null) {
-            return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), "未登录，需要登录");
+            return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), ResponseCode.NEED_LOGIN.getDesc());
         }
         //校验是否是管理员
         if (iUserService.checkAdminRole(user).isSuccess()) {
@@ -92,7 +92,7 @@ public class CategoryManageController {
         // 校验用户是否登录
         User user = (User) session.getAttribute(Const.CURRENT_USER);
         if (user == null) {
-            return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), "未登录，需要登录");
+            return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), ResponseCode.NEED_LOGIN.getDesc());
         }
         //校验是否是管理员
         if (iUserService.checkAdminRole(user).isSuccess()) {

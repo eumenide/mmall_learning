@@ -1,6 +1,7 @@
 package com.mmall.service.impl;
 
 import com.mmall.common.Const;
+import com.mmall.common.ResponseCode;
 import com.mmall.common.ServerResponse;
 import com.mmall.common.TokenCache;
 import com.mmall.dao.UserMapper;
@@ -88,7 +89,7 @@ public class UserServiceImpl implements IUserService {
                 }
             }
         }else{
-            return ServerResponse.createByErrorMessage("参数错误");
+            return ServerResponse.createByErrorCodeMessage(ResponseCode.ILLEGAL_ARGUMENT.getCode(), ResponseCode.ILLEGAL_ARGUMENT.getDesc());
         }
 
         return ServerResponse.createBySuccessMessage("校验成功");
@@ -124,7 +125,7 @@ public class UserServiceImpl implements IUserService {
     public ServerResponse<String> forgetResetPassword(String username, String passwordNew, String forgetToken) {
         // 判断token是否传递
         if (StringUtils.isBlank(forgetToken)) {
-            return ServerResponse.createByErrorMessage("参数错误，token需要传递");
+            return ServerResponse.createByErrorCodeMessage(ResponseCode.ILLEGAL_ARGUMENT.getCode(), ResponseCode.ILLEGAL_ARGUMENT.getDesc());
         }
         // 校验用户是否存在
         ServerResponse validResponse = this.checkValid(username, Const.USERNAME);
