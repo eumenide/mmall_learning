@@ -7,6 +7,7 @@ import com.mmall.common.ServerResponse;
 import com.mmall.dao.ShippingMapper;
 import com.mmall.pojo.Shipping;
 import com.mmall.service.IShippingService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +20,7 @@ import java.util.Map;
  **/
 
 @Service("iShippingService")
+@Slf4j
 public class ShippingServiceImpl implements IShippingService {
 
     @Autowired

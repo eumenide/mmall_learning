@@ -14,8 +14,7 @@ import com.mmall.util.BigDecimalUtil;
 import com.mmall.util.PropertiesUtil;
 import com.mmall.vo.CartProductVo;
 import com.mmall.vo.CartVo;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
@@ -29,9 +28,8 @@ import java.util.List;
  **/
 
 @Service("iCartService")
+@Slf4j
 public class CartServiceImpl implements ICartService {
-
-    private Logger logger = LoggerFactory.getLogger(CartServiceImpl.class);
 
     @Autowired
     private CartMapper cartMapper;

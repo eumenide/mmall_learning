@@ -1,5 +1,6 @@
 package com.mmall.util;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,9 +14,9 @@ import java.util.Properties;
  * @author: eumes
  * @date: 2019/6/27
  **/
-public class PropertiesUtil {
 
-    private static Logger logger = LoggerFactory.getLogger(PropertiesUtil.class);
+@Slf4j
+public class PropertiesUtil {
 
     private static Properties props;
 
@@ -25,7 +26,7 @@ public class PropertiesUtil {
         try {
             props.load(new InputStreamReader(PropertiesUtil.class.getClassLoader().getResourceAsStream(fileName), StandardCharsets.UTF_8));
         } catch (IOException e) {
-            logger.error("配置文件读取异常", e);
+            log.error("配置文件读取异常", e);
         }
     }
 
