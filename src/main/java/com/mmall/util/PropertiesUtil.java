@@ -38,11 +38,76 @@ public class PropertiesUtil {
         return value.trim();
     }
 
+    public static Integer getIntProperty(String key) {
+        String value = props.getProperty(key.trim());
+        if (StringUtils.isBlank(value)) {
+            return null;
+        }
+        return Integer.valueOf(value);
+    }
+
+    public static Boolean getBoolProperty(String key) {
+        String value = props.getProperty(key.trim());
+        if (StringUtils.isBlank(value)) {
+            return null;
+        }
+        return Boolean.valueOf(value);
+    }
+
+    public static Float getFloatProperty(String key) {
+        String value = props.getProperty(key.trim());
+        if (StringUtils.isBlank(value)) {
+            return null;
+        }
+        return Float.valueOf(value);
+    }
+
+    public static Double getDoubleProperty(String key) {
+        String value = props.getProperty(key.trim());
+        if (StringUtils.isBlank(value)) {
+            return null;
+        }
+        return Double.valueOf(value);
+    }
+
+
     public static String getProperty(String key, String defaultValue) {
         String value = props.getProperty(key.trim());
         if (StringUtils.isBlank(value)) {
             return defaultValue;
         }
         return value.trim();
+    }
+
+    public static Integer getIntProperty(String key, Integer defaultValue) {
+        String value = props.getProperty(key.trim());
+        if (StringUtils.isBlank(value)) {
+            return defaultValue;
+        }
+        return Integer.valueOf(value);
+    }
+
+    public static Boolean getBoolProperty(String key, Boolean defaultValue) {
+        String value = props.getProperty(key.trim());
+        if (StringUtils.isBlank(value)) {
+            return defaultValue;
+        }
+        return Boolean.valueOf(value);
+    }
+
+    public static Float getFloatProperty(String key, Float defaultValue) {
+        String value = props.getProperty(key.trim());
+        if (StringUtils.isBlank(value)) {
+            return defaultValue;
+        }
+        return Float.valueOf(value);
+    }
+
+    public static Double getDoubleProperty(String key, Double defaultValue) {
+        String value = props.getProperty(key.trim());
+        if (StringUtils.isBlank(value)) {
+            return defaultValue;
+        }
+        return Double.valueOf(value);
     }
 }
