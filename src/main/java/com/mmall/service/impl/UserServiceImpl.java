@@ -3,11 +3,11 @@ package com.mmall.service.impl;
 import com.mmall.common.Const;
 import com.mmall.common.ResponseCode;
 import com.mmall.common.ServerResponse;
-import com.mmall.common.TokenCache;
 import com.mmall.dao.UserMapper;
 import com.mmall.pojo.User;
 import com.mmall.service.IUserService;
 import com.mmall.util.MD5Util;
+import com.mmall.util.RedisPoolUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -115,7 +115,8 @@ public class UserServiceImpl implements IUserService {
             // 说明问题及问题答案是这个用户的，并且是正确的
             String forgetToken = UUID.randomUUID().toString();
             // 本地缓存token
-            TokenCache.setKey(TokenCache.TOKEN_PREFIX + username, forgetToken);
+//            TokenCache.setKey(TokenCache.TOKEN_PREFIX + username, forgetToken);
+            RedisPoolUtil.setEx(Const.TOKEN_PREFIX + username, forgetToken, Const.HALF_DAY_SECONDS);
             return ServerResponse.createBySuccess(forgetToken);
         }
 
@@ -135,7 +136,8 @@ public class UserServiceImpl implements IUserService {
         }
 
         // 校验缓存中token是否有效
-        String token = TokenCache.getKey(TokenCache.TOKEN_PREFIX + username);
+//        String token = TokenCache.getKey(TokenCache.TOKEN_PREFIX + username);
+        String token = RedisPoolUtil.get(Const.TOKEN_PREFIX + username);
         if (StringUtils.isBlank(token)) {
             return ServerResponse.createByErrorMessage("token无效或过期");
         }

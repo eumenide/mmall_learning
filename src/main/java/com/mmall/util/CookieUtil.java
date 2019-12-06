@@ -43,7 +43,7 @@ public class CookieUtil {
         cookie.setHttpOnly(true);
         // 单位为秒；如果是-1，表示永久
         // 如果maxAge不设置，cookie就不会写入硬盘，而是写在内存。只在当前页面有效。
-        cookie.setMaxAge(Const.ONE_YEAR_SECONDES);
+        cookie.setMaxAge(Const.ONE_YEAR_SECONDS);
         response.addCookie(cookie);
 
         log.info("write cookieName:{}, cookieValue:{}", cookie.getName(), cookie.getValue());

@@ -15,7 +15,10 @@ public class Const {
     public static final String EMAIL = "email";
     public static final String USERNAME = "username";
 
-    public static final int ONE_YEAR_SECONDES = 60 * 60 * 24 * 365;
+    public static final int ONE_YEAR_SECONDS = 60 * 60 * 24 * 365;
+    public static final int HALF_DAY_SECONDS = 60 * 60 * 12;
+
+    public static final String TOKEN_PREFIX = "token_";
 
     public interface ProductListOrderBy{
         Set<String> PRICE_ASC_DESC = Sets.newHashSet("price_desc", "price_asc");
